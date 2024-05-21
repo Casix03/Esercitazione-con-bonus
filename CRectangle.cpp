@@ -219,7 +219,7 @@ void Rectangle::ErrorMessage(const char *string) {
 void Rectangle::Drawing() {
 
 	cout << endl << "sto disegnando un Rettanglolo di base " << width << " e altezza " << height;
-	cout << endl << "il testo che contiene è " << tarea->string << " e la grandezza del carattere è " << tarea->size << endl;
+	cout << endl << "il testo che contiene e' " << tarea->string << " e la grandezza del carattere e' " << tarea->size << endl;
 
 }
 

@@ -108,7 +108,7 @@ void Rhombus::Init(const Rhombus &r) {
 	Init();
 	SetDim(r.diagL,r.diagS);
 	if (tarea == nullptr) {
-		cout << "c'è quaòlcosa che non va\n";
+		cout << "c'e' quaòlcosa che non va\n";
 		exit(1);
 	}
 	SetFontSize(r.tarea->size); /// inizializza il rectangle con la size di r
@@ -252,7 +252,7 @@ void Rhombus::Dump() {
 void Rhombus::Drawing() {
 
 	cout << endl << "sto disegnando un Rombo di diagonale maggiore " << diagL << " e diagonale minore " << diagS;
-	cout << endl << "il testo che contiene è " << tarea->string << " e la grandezza del carattere è " << tarea->size << endl;
+	cout << endl << "il testo che contiene e' " << tarea->string << " e la grandezza del carattere e' " << tarea->size << endl;
 
 }
 

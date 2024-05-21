@@ -81,6 +81,7 @@ void Quadrilateral::Init() {
 	
 	char temp[SLEN] = " ";
 	
+	tarea = new TextArea;
 	SetSides(0.,0.,0.,0.); /// inizializzo lati a 0
 	SetFontSize(0);        /// inizializzo size a 0
 	SetText(temp);		   /// inizializzo text come vuoto
@@ -148,7 +149,7 @@ void Quadrilateral::GetSides(float &s0, float &s1, float &s2, float &s3) {
 void Quadrilateral::GetTextArea(TextArea &ta) {
 	
 	ta.size = tarea->size;  /// metto in ta la size di textarea
-	memcpy(ta.string, tarea->string, SLEN); /// copio con memcpy la stringa di ta
+	memcpy(ta.string, tarea->string, strlen(tarea->string) + 1); /// copio con memcpy la stringa di ta
 
 } 
 
@@ -156,7 +157,7 @@ void Quadrilateral::GetTextArea(TextArea &ta) {
 /// @param text the string used in the text area 
 void Quadrilateral::GetText(char* text) {
 	
-	memcpy(text, tarea->string, SLEN); /// copia in text la stringa di textarea
+	memcpy(text, tarea->string, strlen(tarea->string) + 1); /// copia in text la stringa di textarea
 
 }
 
@@ -182,11 +183,11 @@ void Quadrilateral::SetTextArea(TextArea ta) {
 void Quadrilateral::SetText(char* text) {
 
 	if (sizeof(text) <= SLEN) { /// controllo che le 2 stringhe siano compatibili
-		memcpy(tarea->string, text, SLEN);
+		memcpy(tarea->string, text, strlen(text) + 1);
 	}
 	else {
-		WarningMessage("Stringa troppo lunga");
-		memcpy(tarea->string, " ", SLEN);
+		WarningMessage(" Stringa troppo lunga");
+		memcpy(tarea->string, " ", strlen(text) + 1);
 	}
 
 }
