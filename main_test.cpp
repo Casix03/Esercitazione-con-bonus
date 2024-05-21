@@ -20,7 +20,6 @@ void Show() {
 
 
 int main() {
-
 	 
 	TextArea a1, a2;
 	char t1[SLEN]= "testo 1"; 
@@ -59,5 +58,4 @@ int main() {
 
 
 	return 0;
-
 }

@@ -13,7 +13,11 @@ Quadrilateral::Quadrilateral() {
 /// @brief constructor 
 /// ta a struct of type TextArea with infos on text and font size
 Quadrilateral::Quadrilateral(TextArea ta) {
+	
+	Init();
 
+	SetFontSize(ta.size);  /// metto la size di ta in tarea con la funzione apposita
+	SetText(ta.string);    /// scrivo la stringa di ta in tarea con la funzione apposita
 	
 } 
 
@@ -67,16 +71,19 @@ Quadrilateral& Quadrilateral::operator=(const Quadrilateral &o) {
 bool Quadrilateral::operator==(const Quadrilateral &o) {
 
 	return false;
+
 }
 
 
 /// @brief default initialization of the object
+/// @param temp inizializza una stringa vuota per usare la funzione dedicata SetText 
 void Quadrilateral::Init() {
 	
+	char temp[SLEN] = " ";
 	
-	
-	SetSides(0.,0.,0.,0.);
-	
+	SetSides(0.,0.,0.,0.); /// inizializzo lati a 0
+	SetFontSize(0);        /// inizializzo size a 0
+	SetText(temp);		   /// inizializzo text come vuoto
 		
 }
 
@@ -90,7 +97,8 @@ void Quadrilateral::Init(const Quadrilateral &o) {
 	sides[1] = o.sides[1]; 
 	sides[2] = o.sides[2]; 
 	sides[3] = o.sides[3];
-	
+	SetFontSize(o.tarea->size); /// inizializza il quadrilateral con la size di o
+	SetText(o.tarea->string);   /// inizializza la string di quadrilateral con quella di o
 	
 }
 
@@ -139,21 +147,24 @@ void Quadrilateral::GetSides(float &s0, float &s1, float &s2, float &s3) {
 /// @param ta a struct of type TextArea to be filled
 void Quadrilateral::GetTextArea(TextArea &ta) {
 	
-	
+	ta.size = tarea->size;  /// metto in ta la size di textarea
+	memcpy(ta.string, tarea->string, SLEN); /// copio con memcpy la stringa di ta
+
 } 
 
 /// @brief get the text of the text area 
 /// @param text the string used in the text area 
 void Quadrilateral::GetText(char* text) {
 	
-	
+	memcpy(text, tarea->string, SLEN); /// copia in text la stringa di textarea
+
 }
 
 /// @brief get the font size of the text area 
 /// @return the font size
 unsigned int Quadrilateral::GetFontSize() {
 	
-
+	return tarea->size;
 }
 
 
@@ -161,13 +172,22 @@ unsigned int Quadrilateral::GetFontSize() {
 /// @param ta a struct of type TextArea filled with a text and a font size
 void Quadrilateral::SetTextArea(TextArea ta) {
 
-	
+	SetFontSize(ta.size);  /// metto la size di ta in tarea con la funzione apposita
+	SetText(ta.string); /// scrivo la stringa di ta in tarea con la funzione apposita
+
 }
 
 /// @brief set the text of the text area 
 /// @param text the text 
 void Quadrilateral::SetText(char* text) {
 
+	if (sizeof(text) <= SLEN) { /// controllo che le 2 stringhe siano compatibili
+		memcpy(tarea->string, text, SLEN);
+	}
+	else {
+		WarningMessage("Stringa troppo lunga");
+		memcpy(tarea->string, " ", SLEN);
+	}
 
 }
 
@@ -175,6 +195,7 @@ void Quadrilateral::SetText(char* text) {
 /// @param size the font size 
 void Quadrilateral::SetFontSize(unsigned int size) {
 	
+	tarea->size = size; /// metto la size di size in tarea
 
 }
 
@@ -200,8 +221,12 @@ void Quadrilateral::WarningMessage(const char *string) {
 
 
 /// @brief for debugging: all about the object
+/// @param temp stringa vuota che accoglierà il testo di GetText 
 void Quadrilateral::Dump() {
-	
+
+	char temp[SLEN] = " "; /// variabile temporanea per scrivere text message nel cout
+	GetText(temp);
+
 	cout << endl;
 	cout << "---Quadrilateral---" << endl; 
 	cout << endl;
@@ -209,6 +234,8 @@ void Quadrilateral::Dump() {
 	cout << "Sides = " << sides[0] << "; " << sides[1] << "; " << sides[2] << "; " << sides[3] << "; " << endl;
 	cout << "Perimeter = " << GetPerimeter() << endl;
 	cout << "Area = " << GetArea() << endl;
+	cout << "Font Size = " << GetFontSize() << endl;
+	cout << "Text message = " << temp << endl;
 	cout << "------------------" << endl; 
 	cout << endl;
 

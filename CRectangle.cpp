@@ -9,7 +9,7 @@
 #include "CRectangle.h"
 
 /// @brief default constructor 
-Rectangle::Rectangle() {
+Rectangle::Rectangle():Quadrilateral() {
 
 	cout << "Rectangle - constructor - default" << endl;
 
@@ -20,7 +20,7 @@ Rectangle::Rectangle() {
 /// @brief constructor 
 /// @param w width of the rectangle
 /// @param h height of the rectangle
-Rectangle::Rectangle(float w, float h) {
+Rectangle::Rectangle(float w, float h) :Quadrilateral() {
 
 	Init();
 
@@ -34,14 +34,27 @@ Rectangle::Rectangle(float w, float h) {
 		SetDim(w,h);
 
 }
-
+					//!WORK IN PROGRES!
 /// @brief constructor 
 /// @param w width of the rectangle
 /// @param h height of the rectangle 
-/// @param sf struct of type Format
+/// @param ta struct of type TextArea
 Rectangle::Rectangle(float w, float h, TextArea ta) {
 
-	
+	/*Init();
+
+	cout << "Rectangle - constructor" << endl;
+	if (w <= 0. || h <= 0.) {
+		WarningMessage("constructor: width and height should be > 0");
+		SetDim(0, 0);
+	}
+	else
+		SetDim(w, h);
+	*/
+	Rectangle(w, h);  /// chiamiamo costruttore con i 2 lati
+	//SetText(ta.string);
+	//SetFontSize(ta.size);
+	SetTextArea(ta);  /// al posto del textArea di default del costruttore di prima cambiamo TextArea
 }
 
 /// @brief destructor 
@@ -87,9 +100,15 @@ bool Rectangle::operator==(const Rectangle &r) {
 }
 
 /// @brief default initialization of the object
+/// @param temp inizializza una stringa vuota per usare la funzione dedicata SetText
 void Rectangle::Init() {
+
+	char temp[SLEN] = " ";
+
 	SetDim(0,0);
-	
+	SetFontSize(0);
+	SetText(temp);
+
 }
 
 
@@ -99,12 +118,15 @@ void Rectangle::Init(const Rectangle &r) {
 	
 	Init();
 	SetDim(r.width,r.height);
+	SetFontSize(r.tarea->size); /// inizializza il rectangle con la size di r
+	SetText(r.tarea->string);   /// inizializza la string di rectangle con quella di r
 	
 }
 
 /// @brief total reset of the object  
 void Rectangle::Reset() {
 	
+	Quadrilateral::Reset(); /// così dealloco tutto
 	SetDim(0,0);
 	
 }
@@ -195,7 +217,10 @@ void Rectangle::ErrorMessage(const char *string) {
 
 /// @brief to draw a rectangle
 void Rectangle::Drawing() {
-	
+
+	cout << endl << "sto disegnando un Rettanglolo di base " << width << " e altezza " << height;
+	cout << endl << "il testo che contiene è " << tarea->string << " e la grandezza del carattere è " << tarea->size << endl;
+
 }
 
 /// @brief write a warning message 
@@ -218,7 +243,7 @@ void Rectangle::Dump() {
 	cout << "Heigth = " << height << endl;
 	cout << "------------" << endl;
 	
-	Quadrilateral::Dump();
+	Quadrilateral::Dump(); /// così scrive anche le cose scritte nel rettanglo e la sua fontsize
 	
 	cout << endl;
 

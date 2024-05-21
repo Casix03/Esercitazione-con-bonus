@@ -4,6 +4,8 @@
 	Details.
 */
 
+#ifndef STRUCTAREA_H
+#define STRUCTAREA_H
 
 # define SLEN 50
 
@@ -14,3 +16,5 @@ struct TextArea {
 	unsigned int size; // font size
 	
 };
+
+#endif // STRUCTAREA_H

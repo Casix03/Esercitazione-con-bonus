@@ -40,8 +40,9 @@ Rhombus::Rhombus(float dL, float dS) {
 /// @param dS diagonal (shorter)
 /// @param ta struct of type TextArea
 Rhombus::Rhombus(float dL, float dS, TextArea ta) {
-
-
+	
+	Rhombus(dL, dS);
+	SetTextArea(ta);
 
 }
 
@@ -88,9 +89,15 @@ bool Rhombus::operator==(const Rhombus &r) {
 }
 
 /// @brief default initialization of the object
+/// @param temp inizializza una stringa vuota per usare la funzione dedicata SetText
 void Rhombus::Init() {
-	SetDim(0,0);
-	
+
+	char temp[SLEN] = " ";
+
+	SetDim(0, 0);
+	SetFontSize(0);
+	SetText(temp);
+
 }
 
 
@@ -100,6 +107,12 @@ void Rhombus::Init(const Rhombus &r) {
 		
 	Init();
 	SetDim(r.diagL,r.diagS);
+	if (tarea == nullptr) {
+		cout << "c'è quaòlcosa che non va\n";
+		exit(1);
+	}
+	SetFontSize(r.tarea->size); /// inizializza il rectangle con la size di r
+	SetText(r.tarea->string);   /// inizializza la string di rectangle con quella di r
 	
 }
 
@@ -237,7 +250,9 @@ void Rhombus::Dump() {
 
 /// @brief to draw a rhombus
 void Rhombus::Drawing() {
-	
+
+	cout << endl << "sto disegnando un Rombo di diagonale maggiore " << diagL << " e diagonale minore " << diagS;
+	cout << endl << "il testo che contiene è " << tarea->string << " e la grandezza del carattere è " << tarea->size << endl;
 
 }
 
