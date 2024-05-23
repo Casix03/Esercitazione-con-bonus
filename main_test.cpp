@@ -4,6 +4,7 @@
 #include "CQuadrilateral.h"
 #include "CRectangle.h"
 #include "CRhombus.h"
+#include "Shapes.h"
 
 const int LISTL=6; 
 
@@ -25,7 +26,8 @@ int main() {
 	char t1[SLEN]= "testo 1"; 
 	char t2[SLEN]= "testo 2"; 
 	char t3[SLEN]= "testo 3";
-	
+	char t4[600] = "dbnlkabfsbsbfsbjggbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbgggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggsvlkb kbfsjkvgsbjgbhgdbkbbhlgssbgjkdgsbjkddajsgbjkds<  sv nsv n";
+
 	memcpy(a1.string,t1,strlen(t1)+1);
 	a1.size = 8; 
 	memcpy(a2.string,t2,strlen(t2)+1);
@@ -52,8 +54,9 @@ int main() {
 	rectC=rectA;
 	rectB.SetTextArea(a2);
 	rhoB.SetText(t3);
+	rhoC.SetText(t4);
 	
-	
+	ShowShapes(quadList, LISTL);
 	Show();
 
 

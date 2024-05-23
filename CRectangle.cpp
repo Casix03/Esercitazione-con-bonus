@@ -1,6 +1,7 @@
 /// \file CRectangle.cpp
 ///	\brief class Rectangle: implementation of the functions
-///
+/// @author Elisa Castellari / Francesco Casazza
+/// 
 ///	Details.
 ///
 
@@ -39,8 +40,8 @@ Rectangle::Rectangle(float w, float h) :Quadrilateral() {
 /// @param w width of the rectangle
 /// @param h height of the rectangle 
 /// @param ta struct of type TextArea
-Rectangle::Rectangle(float w, float h, TextArea ta) {
-
+Rectangle::Rectangle(float w, float h, TextArea ta):Quadrilateral(ta) {
+	cout << "Rectangle - TextArea and parameters constructor" << endl;
 	/*Init();
 
 	cout << "Rectangle - constructor" << endl;
@@ -54,7 +55,7 @@ Rectangle::Rectangle(float w, float h, TextArea ta) {
 	Rectangle(w, h);  /// chiamiamo costruttore con i 2 lati
 	//SetText(ta.string);
 	//SetFontSize(ta.size);
-	SetTextArea(ta);  /// al posto del textArea di default del costruttore di prima cambiamo TextArea
+	//SetTextArea(ta);  /// al posto del textArea di default del costruttore di prima cambiamo TextArea
 }
 
 /// @brief destructor 
@@ -103,11 +104,11 @@ bool Rectangle::operator==(const Rectangle &r) {
 /// @param temp inizializza una stringa vuota per usare la funzione dedicata SetText
 void Rectangle::Init() {
 
-	char temp[SLEN] = " ";
+	//char temp[SLEN] = " ";
 
 	SetDim(0,0);
-	SetFontSize(0);
-	SetText(temp);
+	//SetFontSize(0);
+	//SetText(temp);
 
 }
 

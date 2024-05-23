@@ -1,5 +1,6 @@
 /*! \file StructTextArea.h
 	\brief Declaration of the struct TextArea
+     @author Elisa Castellari / Francesco Casazza
 
 	Details.
 */

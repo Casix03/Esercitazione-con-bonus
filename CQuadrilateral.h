@@ -1,5 +1,6 @@
 /*! \file CQuadrilateral.h
 	\brief Declaration of the general class Quadrilateral
+	@author Elisa Castellari / Francesco Casazza
 
 	Details.
 */

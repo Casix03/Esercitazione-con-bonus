@@ -1,6 +1,7 @@
 /// \file CRhombus.cpp
 ///	\brief class Rhombus: implementation of the functions
-///
+/// @author Elisa Castellari 5610013 / Francesco Casazza 5449073
+/// 
 ///	Details.
 ///
 
@@ -39,10 +40,19 @@ Rhombus::Rhombus(float dL, float dS) {
 /// @param dL diagonal (longer)
 /// @param dS diagonal (shorter)
 /// @param ta struct of type TextArea
-Rhombus::Rhombus(float dL, float dS, TextArea ta) {
+Rhombus::Rhombus(float dL, float dS, TextArea ta):Quadrilateral(ta) {
 	
-	Rhombus(dL, dS);
-	SetTextArea(ta);
+	cout << "Rhombus - TextArea and parameters constructor" << endl;
+
+	Init();
+	if (dL <= 0. || dS <= 0.) {
+		WarningMessage("constructor: diagonals should be > 0");
+		SetDim(0, 0);
+	}
+	else
+		SetDim(dL, dS);
+	//Rhombus(dL, dS);
+	//SetTextArea(ta);
 
 }
 
@@ -92,11 +102,11 @@ bool Rhombus::operator==(const Rhombus &r) {
 /// @param temp inizializza una stringa vuota per usare la funzione dedicata SetText
 void Rhombus::Init() {
 
-	char temp[SLEN] = " ";
+	//char temp[SLEN] = " ";
 
 	SetDim(0, 0);
-	SetFontSize(0);
-	SetText(temp);
+	//SetFontSize(0);
+	//SetText(temp);
 
 }
 

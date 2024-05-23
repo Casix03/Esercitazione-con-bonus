@@ -1,5 +1,6 @@
 #include <cstring>
 #include "CQuadrilateral.h"
+#include <string.h>
 
 /// @brief default constructor 
 Quadrilateral::Quadrilateral() {
@@ -14,6 +15,8 @@ Quadrilateral::Quadrilateral() {
 /// ta a struct of type TextArea with infos on text and font size
 Quadrilateral::Quadrilateral(TextArea ta) {
 	
+	cout << "Quadrilateral - TextArea constructor" << endl;
+
 	Init();
 
 	SetFontSize(ta.size);  /// metto la size di ta in tarea con la funzione apposita
@@ -34,6 +37,7 @@ Quadrilateral::Quadrilateral(const Quadrilateral &o) {
 Quadrilateral::~Quadrilateral() {
 
 	cout << "Quadrilateral - destructor" << endl;
+
 	Reset();
 
 }  
@@ -76,15 +80,15 @@ bool Quadrilateral::operator==(const Quadrilateral &o) {
 
 
 /// @brief default initialization of the object
-/// @param temp inizializza una stringa vuota per usare la funzione dedicata SetText 
+/// @param temp inizializza una stringa con il testo di default per usare la funzione dedicata SetText 
 void Quadrilateral::Init() {
 	
-	char temp[SLEN] = " ";
+	char temp[SLEN] = "NULL";
 	
 	tarea = new TextArea;
-	SetSides(0.,0.,0.,0.); /// inizializzo lati a 0
-	SetFontSize(0);        /// inizializzo size a 0
-	SetText(temp);		   /// inizializzo text come vuoto
+	SetSides(0.,0.,0.,0.); // inizializzo lati a 0
+	SetFontSize(1);        // inizializzo size a 1
+	SetText(temp);		   // inizializzo text come vuoto
 		
 }
 
@@ -174,30 +178,62 @@ unsigned int Quadrilateral::GetFontSize() {
 void Quadrilateral::SetTextArea(TextArea ta) {
 
 	SetFontSize(ta.size);  /// metto la size di ta in tarea con la funzione apposita
-	SetText(ta.string); /// scrivo la stringa di ta in tarea con la funzione apposita
+	SetText(ta.string);    /// scrivo la stringa di ta in tarea con la funzione apposita
 
+}
+
+size_t LengthOfString(const char* text) { //sono necessari questi controlli o posso fregarmene??
+	size_t size = 0;   //come faccio a controllare se mi inserisce piu caratteri di 50 se la grandezza dell array è gia settata a 50??
+
+	while (*text) {
+		size += 1;
+		text += 1;
+	}
+
+	return size;
 }
 
 /// @brief set the text of the text area 
 /// @param text the text 
 void Quadrilateral::SetText(char* text) {
 
-	if (sizeof(text) <= SLEN) { /// controllo che le 2 stringhe siano compatibili
+	
+	size_t size = LengthOfString(text);
+	if (size > 50)
+	{
+		//cout << "You are only allowed to insert 50 caracters!!!" << endl;
+		WarningMessage("\nNON puoi inserire piu' di 50 caratteri!\n");
+	}
+	else
+	{
+		memcpy(tarea->string, text, strlen(text) + 1);
+		//std::strcpy(tarea->string, testlength);
+	}
+}
+	/*
+	/if (sizeof(text) <= SLEN) { /// controllo che la stringa sia di dimensione compatibile
 		memcpy(tarea->string, text, strlen(text) + 1);
 	}
 	else {
-		WarningMessage(" Stringa troppo lunga");
-		memcpy(tarea->string, " ", strlen(text) + 1);
+		WarningMessage("Stringa troppo lunga");
+		//(tarea->string, " ", strlen(text) + 1);
+		return;
 	}
+	*/
 
-}
+//}
 
 /// @brief set the font size of the text area 
 /// @param size the font size 
 void Quadrilateral::SetFontSize(unsigned int size) {
 	
-	tarea->size = size; /// metto la size di size in tarea
-
+	if (size != 0)
+		tarea->size = size; /// metto la size di size in tarea
+	else {
+		WarningMessage("Font size cannot be 0");
+		//tarea->size = 1;
+		return;
+	}
 }
 
 
