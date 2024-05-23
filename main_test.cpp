@@ -10,7 +10,6 @@ int ShapeLenght = 0; //inizializzo lunghezza a 0
 Quadrilateral* ShapeList[SHAPESNUMBER]; //prova per shape grande
 const int LISTL = 6; 
 //int LISTL = 6;
-
 Quadrilateral* quadList[LISTL];
 
 void Show() {
@@ -62,9 +61,18 @@ int main() {
 	quadList[3]= &rhoA;
 	quadList[4]= &rhoB;
 	quadList[5]= &rhoC;
+	std::vector<Quadrilateral*> path(std::begin(quadList), std::end(quadList)); //FORSE VA LUI
+	RemoveAllShapes(&path, 1);
+	//Show();
+	//Show(1);
+	for (auto i : path) {
+		cout << "\n\ndisegno da vector\n\n";
+		i->Drawing();
+		std::cout << i->GetFontSize() << ' '; // will print the various sizes
+	}
 
-	Show();
-	Show(1);
+	Rhombus rhoBELLO;
+	rhoBELLO.Drawing();
 	
 	rectA.SetFontSize(20);
 	//rectC=rectA;

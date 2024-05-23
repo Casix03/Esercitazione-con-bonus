@@ -6,6 +6,8 @@
 ///
 
 #include "Shapes.h"
+#include <vector>
+using namespace std;
 
 /// @brief funzione per vedere tutte le forme create
 /// @param int Sh per stampare le forme
@@ -39,6 +41,7 @@ bool AddShapes(Quadrilateral* NewShape, static int lenght, Quadrilateral* Shapes
 /// @brief funzione per rimuovere tutte le forme
 /// @param Sh per far passare una ad una tutte le forme nel ciclo for e cancellarle
 void RemoveAllShapes(Quadrilateral* Shapes[SHAPESNUMBER], int lenght) {
+	//vector<Quadrilateral*> path(begin(Shapes), std::end(Shapes));
 	cout << "__________________________________________________________" << endl;
 	cout << "Cancellazione in corso...." << endl;
 	//for (int Sh = 0; Sh < lenght; Sh++) {
@@ -48,5 +51,13 @@ void RemoveAllShapes(Quadrilateral* Shapes[SHAPESNUMBER], int lenght) {
 	//}
 	cout << "Cancellazione eseguita con successo" << endl;
 	cout << "__________________________________________________________\n" << endl;
+}
+
+void RemoveAllShapes(vector<Quadrilateral*> Shapes[SHAPESNUMBER], int lenght) {
+	cout << "\n\narrivato!\n\n";
+	//auto i   Shapes;
+	//Shapes->clear();
+	Shapes->erase(std::next(Shapes->begin()));
+	return;
 }
 

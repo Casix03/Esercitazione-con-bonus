@@ -8,6 +8,7 @@
 #include<iostream>
 #include <cstring>
 #include <vector>
+#include <iterator>
 
 #include "CQuadrilateral.h"
 #include "CRectangle.h"
@@ -36,6 +37,7 @@ using namespace std;
 /// @{
 	void RemoveOneShape(Quadrilateral* ShapeToRemove);
 	void RemoveAllShapes(Quadrilateral* Shapes[SHAPESNUMBER], int lenght);
+	void RemoveAllShapes(vector<Quadrilateral*> Shapes[SHAPESNUMBER], int lenght);
 	/// @}
 
 #endif; //SHAPES_H
