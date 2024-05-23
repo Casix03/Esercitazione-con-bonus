@@ -48,7 +48,7 @@ public:
 	
 	/// @name BASIC HANDLING
 	/// @{
-	void Init();												
+	virtual void Init();												
 	void Init(const Quadrilateral &o);							
 	void Reset();												
 	/// @}

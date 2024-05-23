@@ -40,6 +40,8 @@ Rhombus::Rhombus(float dL, float dS) {
 /// @param dL diagonal (longer)
 /// @param dS diagonal (shorter)
 /// @param ta struct of type TextArea
+/// si comporta come quello solo per i parametri solo che al posto di lanciare il costruttore
+/// di default lancia quello con TextArea
 Rhombus::Rhombus(float dL, float dS, TextArea ta):Quadrilateral(ta) {
 	
 	cout << "Rhombus - TextArea and parameters constructor" << endl;
@@ -51,8 +53,6 @@ Rhombus::Rhombus(float dL, float dS, TextArea ta):Quadrilateral(ta) {
 	}
 	else
 		SetDim(dL, dS);
-	//Rhombus(dL, dS);
-	//SetTextArea(ta);
 
 }
 
@@ -89,10 +89,10 @@ Rhombus& Rhombus::operator=(const Rhombus &r) {
 
 /// @brief overload of operator == 
 /// @param r reference to the object on the right side of the operator 
-/// @return true if the two objects have the same width and the same length  
+/// @return true if the two objects have the same diagL
 bool Rhombus::operator==(const Rhombus &r) { 
 
-	if (r.diagL == diagL && r.diagS == diagS)
+	if (r.diagL == diagL && r.diagS == diagS && r.tarea->size == tarea->size && strcmp(r.tarea->string, tarea->string))
 		return true;
 		
 	return false;
@@ -102,11 +102,8 @@ bool Rhombus::operator==(const Rhombus &r) {
 /// @param temp inizializza una stringa vuota per usare la funzione dedicata SetText
 void Rhombus::Init() {
 
-	//char temp[SLEN] = " ";
-
 	SetDim(0, 0);
-	//SetFontSize(0);
-	//SetText(temp);
+	Quadrilateral::Init(); // così cancello anche il testo
 
 }
 
@@ -118,7 +115,7 @@ void Rhombus::Init(const Rhombus &r) {
 	Init();
 	SetDim(r.diagL,r.diagS);
 	if (tarea == nullptr) {
-		cout << "c'e' quaòlcosa che non va\n";
+		cout << "c'e' qualcosa che non va, sto puntando a NULL\n";
 		exit(1);
 	}
 	SetFontSize(r.tarea->size); /// inizializza il rectangle con la size di r

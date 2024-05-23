@@ -19,8 +19,8 @@ Quadrilateral::Quadrilateral(TextArea ta) {
 
 	Init();
 
-	SetFontSize(ta.size);  /// metto la size di ta in tarea con la funzione apposita
-	SetText(ta.string);    /// scrivo la stringa di ta in tarea con la funzione apposita
+	SetFontSize(ta.size);  // metto la size di ta in tarea con la funzione apposita
+	SetText(ta.string);    // scrivo la stringa di ta in tarea con la funzione apposita
 	
 } 
 
@@ -102,8 +102,8 @@ void Quadrilateral::Init(const Quadrilateral &o) {
 	sides[1] = o.sides[1]; 
 	sides[2] = o.sides[2]; 
 	sides[3] = o.sides[3];
-	SetFontSize(o.tarea->size); /// inizializza il quadrilateral con la size di o
-	SetText(o.tarea->string);   /// inizializza la string di quadrilateral con quella di o
+	SetFontSize(o.tarea->size); // inizializza il quadrilateral con la size di o
+	SetText(o.tarea->string);   // inizializza la string di quadrilateral con quella di o
 	
 }
 
@@ -153,7 +153,7 @@ void Quadrilateral::GetSides(float &s0, float &s1, float &s2, float &s3) {
 void Quadrilateral::GetTextArea(TextArea &ta) {
 	
 	ta.size = tarea->size;  /// metto in ta la size di textarea
-	memcpy(ta.string, tarea->string, strlen(tarea->string) + 1); /// copio con memcpy la stringa di ta
+	memcpy(ta.string, tarea->string, strlen(tarea->string) + 1); // copio con memcpy la stringa di ta
 
 } 
 
@@ -161,7 +161,7 @@ void Quadrilateral::GetTextArea(TextArea &ta) {
 /// @param text the string used in the text area 
 void Quadrilateral::GetText(char* text) {
 	
-	memcpy(text, tarea->string, strlen(tarea->string) + 1); /// copia in text la stringa di textarea
+	memcpy(text, tarea->string, strlen(tarea->string) + 1); // copia in text la stringa di textarea
 
 }
 
@@ -177,58 +177,30 @@ unsigned int Quadrilateral::GetFontSize() {
 /// @param ta a struct of type TextArea filled with a text and a font size
 void Quadrilateral::SetTextArea(TextArea ta) {
 
-	SetFontSize(ta.size);  /// metto la size di ta in tarea con la funzione apposita
-	SetText(ta.string);    /// scrivo la stringa di ta in tarea con la funzione apposita
+	SetFontSize(ta.size);  // metto la size di ta in tarea con la funzione apposita
+	SetText(ta.string);    // scrivo la stringa di ta in tarea con la funzione apposita
 
-}
-
-size_t LengthOfString(const char* text) { //sono necessari questi controlli o posso fregarmene??
-	size_t size = 0;   //come faccio a controllare se mi inserisce piu caratteri di 50 se la grandezza dell array è gia settata a 50??
-
-	while (*text) {
-		size += 1;
-		text += 1;
-	}
-
-	return size;
 }
 
 /// @brief set the text of the text area 
-/// @param text the text 
+/// facciamo controllo per vedere se il testo da inserire è troppo lungo.
+/// nel caso lo sia lasciamo quello di default
 void Quadrilateral::SetText(char* text) {
 
-	
-	size_t size = LengthOfString(text);
-	if (size > 50)
-	{
-		//cout << "You are only allowed to insert 50 caracters!!!" << endl;
+	if (strlen(text) > SLEN) {	// controllo lunghezza testo da inserire	
 		WarningMessage("\nNON puoi inserire piu' di 50 caratteri!\n");
 	}
-	else
-	{
+	else {
 		memcpy(tarea->string, text, strlen(text) + 1);
-		//std::strcpy(tarea->string, testlength);
 	}
 }
-	/*
-	/if (sizeof(text) <= SLEN) { /// controllo che la stringa sia di dimensione compatibile
-		memcpy(tarea->string, text, strlen(text) + 1);
-	}
-	else {
-		WarningMessage("Stringa troppo lunga");
-		//(tarea->string, " ", strlen(text) + 1);
-		return;
-	}
-	*/
-
-//}
 
 /// @brief set the font size of the text area 
 /// @param size the font size 
 void Quadrilateral::SetFontSize(unsigned int size) {
 	
 	if (size != 0)
-		tarea->size = size; /// metto la size di size in tarea
+		tarea->size = size; // metto la size di size in tarea
 	else {
 		WarningMessage("Font size cannot be 0");
 		//tarea->size = 1;

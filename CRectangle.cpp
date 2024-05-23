@@ -35,27 +35,28 @@ Rectangle::Rectangle(float w, float h) :Quadrilateral() {
 		SetDim(w,h);
 
 }
-					//!WORK IN PROGRES!
-/// @brief constructor 
+				
+/// @brief constructor with parameters and TextArea
 /// @param w width of the rectangle
 /// @param h height of the rectangle 
 /// @param ta struct of type TextArea
+/// si comporta come quello solo per i parametri solo che al posto di lanciare il costruttore
+/// di default lancia quello con TextArea
 Rectangle::Rectangle(float w, float h, TextArea ta):Quadrilateral(ta) {
+
 	cout << "Rectangle - TextArea and parameters constructor" << endl;
-	/*Init();
+
+	Init();
 
 	cout << "Rectangle - constructor" << endl;
+
 	if (w <= 0. || h <= 0.) {
 		WarningMessage("constructor: width and height should be > 0");
 		SetDim(0, 0);
 	}
 	else
 		SetDim(w, h);
-	*/
-	Rectangle(w, h);  /// chiamiamo costruttore con i 2 lati
-	//SetText(ta.string);
-	//SetFontSize(ta.size);
-	//SetTextArea(ta);  /// al posto del textArea di default del costruttore di prima cambiamo TextArea
+
 }
 
 /// @brief destructor 
@@ -91,10 +92,10 @@ Rectangle& Rectangle::operator=(const Rectangle &r) {
 
 /// @brief overload of operator == 
 /// @param r reference to the object on the right side of the operator 
-/// @return true if the two objects have the same width and the same length  
+/// @return true if the two objects have the same width and the same length, the same diagS, the same fontsize and the same string  
 bool Rectangle::operator==(const Rectangle &r) { 
 
-	if (r.width == width && r.height == height)
+	if (r.width == width && r.height == height && r.tarea->size == tarea->size && strcmp(r.tarea->string, tarea->string))
 		return true;
 		
 	return false;
@@ -104,12 +105,9 @@ bool Rectangle::operator==(const Rectangle &r) {
 /// @param temp inizializza una stringa vuota per usare la funzione dedicata SetText
 void Rectangle::Init() {
 
-	//char temp[SLEN] = " ";
-
-	SetDim(0,0);
-	//SetFontSize(0);
-	//SetText(temp);
-
+	SetDim(0, 0);
+	Quadrilateral::Init();  // così cancello anche il testo
+	
 }
 
 
@@ -119,15 +117,15 @@ void Rectangle::Init(const Rectangle &r) {
 	
 	Init();
 	SetDim(r.width,r.height);
-	SetFontSize(r.tarea->size); /// inizializza il rectangle con la size di r
-	SetText(r.tarea->string);   /// inizializza la string di rectangle con quella di r
+	SetFontSize(r.tarea->size); // inizializza il rectangle con la size di r
+	SetText(r.tarea->string);   // inizializza la string di rectangle con quella di r
 	
 }
 
 /// @brief total reset of the object  
 void Rectangle::Reset() {
 	
-	Quadrilateral::Reset(); /// così dealloco tutto
+	Quadrilateral::Reset(); // così dealloco tutto
 	SetDim(0,0);
 	
 }

@@ -27,13 +27,13 @@ using namespace std;
 
 /// @name AGGIUNGI-SHAPE
 /// @{
-	void AddShapes(vector<Quadrilateral> Shapes);
+	bool AddShapes(Quadrilateral* NewShape, int lenght, Quadrilateral* Shapes[SHAPESNUMBER]);
 /// @}
 
 /// @name RIMUOVI-SHAPE
 /// @{
 	void RemoveOneShape(Quadrilateral* ShapeToRemove);
-	void RemoveAllShapes(vector<Quadrilateral> Shapes);	
+	void RemoveAllShapes(Quadrilateral* Shapes[SHAPESNUMBER], int lenght);
 	/// @}
 
 #endif; //SHAPES_H

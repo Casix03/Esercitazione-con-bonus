@@ -6,19 +6,19 @@
 #include "CRhombus.h"
 #include "Shapes.h"
 
-const int LISTL=6; 
+const int LISTL = 6; 
+//int LISTL = 6;
 
 Quadrilateral* quadList[LISTL];
 
 void Show() {
-	
-	int i; 
-	
-	for (i=0; i<LISTL; i++)
-		quadList[i]->Drawing();
-	
-}
 
+	int i;
+
+	for (i = 0; i < LISTL; i++)
+		quadList[i]->Drawing();
+
+}
 
 int main() {
 	 
@@ -57,7 +57,21 @@ int main() {
 	rhoC.SetText(t4);
 	
 	ShowShapes(quadList, LISTL);
-	Show();
+	RemoveAllShapes(quadList, LISTL);
+	ShowShapes(quadList, LISTL);
+//	quadList[3]->Init();
+//	quadList[3]->Dump();
+
+	TextArea b;
+	b.size = 3;
+	char b1[SLEN] = "SE MI LEGGI SEI FORTE";
+	memcpy(b.string, b1, strlen(b1) + 1);
+	Quadrilateral* a = new Rectangle;
+	Rectangle prova(3, 4, b);
+	a = &prova;
+	AddShapes(a, LISTL, quadList);
+	ShowShapes(quadList, LISTL);
+
 
 
 	return 0;

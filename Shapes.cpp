@@ -12,18 +12,38 @@
 /// @param int lenght è la lunghezza dell'array
 void ShowShapes(Quadrilateral* Shapes[SHAPESNUMBER], int lenght) {
 
-
 	cout << "__________________________________________________________" << endl;
 	cout << "Ecco tutte le tue forme\n" << endl;
 	for (int Sh = 0; Sh < lenght; Sh++) {
 		cout << "Forma " << Sh + 1 << ":";
 		Shapes[Sh]->Drawing();
 	}
-	cout << "__________________________________________________________" << endl;
+	cout << "__________________________________________________________\n" << endl;
+
 }
 
 /// @brief funzione per aggiungere forme
-void AddShapes(vector<Quadrilateral> Shapes) {
+bool AddShapes(Quadrilateral* NewShape, int lenght, Quadrilateral* Shapes[SHAPESNUMBER]) {
+	if (lenght > (SHAPESNUMBER)) {
+		cout << endl << "Hai raggiunto il numero massimo di forme. cancellane unan per aggiungerne altre";
+		return false;
+	}
+	else {
+		Shapes[++lenght] = NewShape;
+		cout << endl << " Aggiunto alla lista";
+		return true;
+	}
+}
 
+/// @brief funzione per rimuovere tutte le forme
+/// @param Sh per far passare una ad una tutte le forme nel ciclo for e cancellarle
+void RemoveAllShapes(Quadrilateral* Shapes[SHAPESNUMBER], int lenght) {
+	cout << "__________________________________________________________" << endl;
+	cout << "Cancellazione in corso...." << endl;
+	for (int Sh = 0; Sh < lenght; Sh++) {
+		Shapes[Sh]->Init();
+	}
+	cout << "Cancellazione eseguita con successo" << endl;
+	cout << "__________________________________________________________\n" << endl;
 }
 
