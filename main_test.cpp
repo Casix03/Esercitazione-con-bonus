@@ -6,6 +6,8 @@
 #include "CRhombus.h"
 #include "Shapes.h"
 
+int ShapeLenght = 0; //inizializzo lunghezza a 0
+Quadrilateral* ShapeList[SHAPESNUMBER]; //prova per shape grande
 const int LISTL = 6; 
 //int LISTL = 6;
 
@@ -20,6 +22,16 @@ void Show() {
 
 }
 
+void Show(int q) {
+
+	int i;
+
+	for (i = 0; i < LISTL; i++)
+		quadList[i]->Dump();
+
+}
+
+
 int main() {
 	 
 	TextArea a1, a2;
@@ -27,6 +39,7 @@ int main() {
 	char t2[SLEN]= "testo 2"; 
 	char t3[SLEN]= "testo 3";
 	char t4[600] = "dbnlkabfsbsbfsbjggbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbgggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggsvlkb kbfsjkvgsbjgbhgdbkbbhlgssbgjkdgsbjkddajsgbjkds<  sv nsv n";
+	char b1[SLEN] = "SE MI LEGGI SEI FORTE";
 
 	memcpy(a1.string,t1,strlen(t1)+1);
 	a1.size = 8; 
@@ -36,9 +49,11 @@ int main() {
 	Rectangle rectA(10,5);
 	Rectangle rectB(3,7,a1);
 	Rectangle rectC = rectA;
+	//Rectangle rectC(5, 5, a2);
 
 	Rhombus rhoA(6,2,a2);
 	Rhombus rhoB = rhoA;
+	//Rhombus rhoB(34,54,a1);
 	Rhombus rhoC(4,3);
 		
 	quadList[0]= &rectA;
@@ -49,29 +64,24 @@ int main() {
 	quadList[5]= &rhoC;
 
 	Show();
+	Show(1);
 	
 	rectA.SetFontSize(20);
-	rectC=rectA;
+	//rectC=rectA;
 	rectB.SetTextArea(a2);
-	rhoB.SetText(t3);
+//	rhoB.SetText(t3);
 	rhoC.SetText(t4);
 	
 	ShowShapes(quadList, LISTL);
 	RemoveAllShapes(quadList, LISTL);
-	ShowShapes(quadList, LISTL);
-//	quadList[3]->Init();
-//	quadList[3]->Dump();
-
-	TextArea b;
-	b.size = 3;
-	char b1[SLEN] = "SE MI LEGGI SEI FORTE";
-	memcpy(b.string, b1, strlen(b1) + 1);
-	Quadrilateral* a = new Rectangle;
-	Rectangle prova(3, 4, b);
-	a = &prova;
-	AddShapes(a, LISTL, quadList);
-	ShowShapes(quadList, LISTL);
-
+//	ShowShapes(quadList, LISTL);
+	
+	//memcpy(b.string, b1, strlen(b1) + 1);
+	//Quadrilateral* a = new Rectangle;
+	//Rectangle prova(3, 4, b);
+	//ShapeList[0] = &prova;
+	//AddShapes(ShapeList[0], ShapeLenght, ShapeList);
+	//ShowShapes(ShapeList, ShapeLenght + 1);
 
 
 	return 0;

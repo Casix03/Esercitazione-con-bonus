@@ -18,10 +18,12 @@ Quadrilateral::Quadrilateral(TextArea ta) {
 	cout << "Quadrilateral - TextArea constructor" << endl;
 
 	Init();
-
+	//SetTextArea(ta);
 	SetFontSize(ta.size);  // metto la size di ta in tarea con la funzione apposita
 	SetText(ta.string);    // scrivo la stringa di ta in tarea con la funzione apposita
-	
+
+	cout <<"ho scritto " << tarea->string << " e size " << tarea->size << endl; //controllo per capire cosa non va
+
 } 
 
 /// @brief copy constructor 

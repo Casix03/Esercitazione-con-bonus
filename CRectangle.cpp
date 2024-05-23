@@ -56,7 +56,7 @@ Rectangle::Rectangle(float w, float h, TextArea ta):Quadrilateral(ta) {
 	}
 	else
 		SetDim(w, h);
-
+	//SetTextArea(ta);   //a caso
 }
 
 /// @brief destructor 
@@ -102,11 +102,9 @@ bool Rectangle::operator==(const Rectangle &r) {
 }
 
 /// @brief default initialization of the object
-/// @param temp inizializza una stringa vuota per usare la funzione dedicata SetText
 void Rectangle::Init() {
 
 	SetDim(0, 0);
-	Quadrilateral::Init();  // così cancello anche il testo
 	
 }
 

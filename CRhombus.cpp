@@ -99,11 +99,9 @@ bool Rhombus::operator==(const Rhombus &r) {
 }
 
 /// @brief default initialization of the object
-/// @param temp inizializza una stringa vuota per usare la funzione dedicata SetText
 void Rhombus::Init() {
 
 	SetDim(0, 0);
-	Quadrilateral::Init(); // così cancello anche il testo
 
 }
 

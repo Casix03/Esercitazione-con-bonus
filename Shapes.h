@@ -14,6 +14,8 @@
 #include "CRhombus.h"
 
 #define SHAPESNUMBER 50
+//int ShapeLenght = 0;
+//Quadrilateral* ShapeList[SHAPESNUMBER];
 
 using namespace std;
 

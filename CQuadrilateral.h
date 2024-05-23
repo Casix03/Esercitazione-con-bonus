@@ -75,7 +75,7 @@ public:
 	/// @{
 	void ErrorMessage(const char *string); 
 	void WarningMessage(const char *string);
-	void Dump();
+virtual	void Dump(); //messo per esperimento
 	/// @}
 	
 	/// @name PURE VIRTUAL FUNCTIONS 
