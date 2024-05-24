@@ -88,6 +88,7 @@ void Menu(Quadrilateral* ShapePointer) {
 			//scanf("%s", &NewText);
 			scanf("\n");					// per prendere l'invio
 			fgets(NewText, SLEN, stdin);	// cosi' anche se metto lo spazio funziona
+			strtok(NewText, "\n");			// rimuove il \n finale letto da fgets
 			ShapePointer->SetText(NewText);
 			
 			AddShapes(&MyShapes, ShapePointer); // aggiungo la forma appena creata dall'utente
@@ -117,9 +118,7 @@ void Menu(Quadrilateral* ShapePointer) {
 	}
 }
 
-
-
-
+//@brief funzione data dal professore
 void Show() {
 
 	int i;
@@ -130,102 +129,45 @@ void Show() {
 }
 
 int main() {
-	
+	// per punto extra
 	Quadrilateral* p = NULL;
 	Menu(p);
-	Rectangle a;
+	// inizio main di prova fornito da professore
+	TextArea a1, a2;
+	char t1[SLEN] = "testo 1";
+	char t2[SLEN] = "testo 2";
+	char t3[SLEN] = "testo 3";
 
-	p = &a;
-	//AddShapes(p, &MyShapes);
-	//AddShapes(p, &MyShapes);
-	//AddShapes(p, &MyShapes);
-	//AddShapes(p, &MyShapes);
-	ShowShapes(MyShapes);
-	RemoveOneShape(&MyShapes, 1);
-	RemoveOneShape(&MyShapes, 5);
-	ShowShapes(MyShapes);
-
-
-	ShowShapes(MyShapes);
-
-	/*TextArea a1, a2;
-	char t1[SLEN]= "testo 1"; 
-	char t2[SLEN]= "testo 2"; 
-	char t3[SLEN]= "testo 3";
-	char t4[600] = "dbnlkabfsbsbfsbjggbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbgggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggsvlkb kbfsjkvgsbjgbhgdbkbbhlgssbgjkdgsbjkddajsgbjkds<  sv nsv n";
-	char b1[SLEN] = "SE MI LEGGI SEI FORTE";
-
-	memcpy(a1.string,t1,strlen(t1)+1);
-	a1.size = 8; 
-	memcpy(a2.string,t2,strlen(t2)+1);
+	memcpy(a1.string, t1, strlen(t1) + 1);
+	a1.size = 8;
+	memcpy(a2.string, t2, strlen(t2) + 1);
 	a2.size = 14;
-	
-	Rectangle rectA(10,5);
-	Rectangle rectB(3,7,a1);
+
+	Rectangle rectA(10, 5);
+	Rectangle rectB(3, 7, a1);
 	Rectangle rectC = rectA;
-	//Rectangle rectC(5, 5, a2);
 
-	Rhombus rhoA(6,2,a2);
+	Rhombus rhoA(6, 2, a2);
 	Rhombus rhoB = rhoA;
-	//Rhombus rhoB(34,54,a1);
-	Rhombus rhoC(4,3);
-		
-	quadList[0]= &rectA;
-	quadList[1]= &rectB;
-	quadList[2]= &rectC;
-	quadList[3]= &rhoA;
-	quadList[4]= &rhoB;
-	quadList[5]= &rhoC;
-	std::vector<Quadrilateral*> path(std::begin(quadList), std::end(quadList)); //FORSE VA LUI
-	//RemoveAllShapes(&path, 1);
-	RemoveOneShape(&path, 2);
-	RemoveOneShape(&path, 3);
-	RemoveOneShape(&path, 1);
-	RemoveOneShape(&path, 9);
-	AddShapes(quadList[5], &path);
-	//Show();
-	//Show(1);
-	ShowShapes(path);
-	/*
-	for (auto i : path) {
-		cout << "\n\ndisegno da vector\n\n";
-		i->Drawing();
-		std::cout << i->GetFontSize() << ' '; // will print the various sizes
-	}
-	*/
+	Rhombus rhoC(4, 3);
 
-	/*Rhombus rhoBELLO;
-	rhoBELLO.Drawing();
-	
-	AddShapes(quadList[1], &path);
-	AddShapes(quadList[2], &path);
-	AddShapes(quadList[3], &path);
-	AddShapes(quadList[5], &MyShapes);
+	quadList[0] = &rectA;
+	quadList[1] = &rectB;
+	quadList[2] = &rectC;
+	quadList[3] = &rhoA;
+	quadList[4] = &rhoB;
+	quadList[5] = &rhoC;
 
-	ShowShapes(path);
+	Show();
 
 	rectA.SetFontSize(20);
-	rectC=rectA;
+	rectC = rectA;
 	rectB.SetTextArea(a2);
 	rhoB.SetText(t3);
-	rhoC.SetText(t4);
-	
-	ShowShapes(MyShapes);
-//	ShowShapes(quadList, LISTL);
-	RemoveAllShapes(&path);
-	ShowShapes(path);
-	//RemoveOneShape(&path, 2);
 
-//	ShowShapes(quadList, LISTL);
-	
-	//memcpy(b.string, b1, strlen(b1) + 1);
-	//Quadrilateral* a = new Rectangle;
-	//Rectangle prova(3, 4, b);
-	//ShapeList[0] = &prova;
-	//AddShapes(ShapeList[0], ShapeLenght, ShapeList);
-	//ShowShapes(ShapeList, ShapeLenght + 1);
 
-	*/
-	//delete p;
+	Show();
+	// per vedere se teneva le forme in memoria
+	Menu(p);
 	return 0;
 }

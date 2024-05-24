@@ -56,7 +56,6 @@ Rectangle::Rectangle(float w, float h, TextArea ta):Quadrilateral(ta) {
 	}
 	else
 		SetDim(w, h);
-	//SetTextArea(ta);   //a caso
 }
 
 /// @brief destructor 

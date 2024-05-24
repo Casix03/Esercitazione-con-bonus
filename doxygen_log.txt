@@ -24,6 +24,10 @@ Preprocessing C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CR
 Parsing file C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CRhombus.h...
 Preprocessing C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/main_test.cpp...
 Parsing file C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/main_test.cpp...
+Preprocessing C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/Shapes.cpp...
+Parsing file C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/Shapes.cpp...
+Preprocessing C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/Shapes.h...
+Parsing file C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/Shapes.h...
 Preprocessing C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/StructTextArea.h...
 Parsing file C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/StructTextArea.h...
 Building macro definition list...
@@ -89,6 +93,7 @@ Generating file sources...
 Generating code for file CQuadrilateral.h...
 Generating code for file CRectangle.h...
 Generating code for file CRhombus.h...
+Generating code for file Shapes.h...
 Generating code for file StructTextArea.h...
 Generating file documentation...
 Generating docs for file CQuadrilateral.h...
@@ -96,8 +101,53 @@ Generating docs for file CRectangle.cpp...
 Generating docs for file CRectangle.h...
 Generating docs for file CRhombus.cpp...
 Generating docs for file CRhombus.h...
+Generating docs for file Shapes.cpp...
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/Shapes.cpp:68: warning: argument 'vector' of command @param is not found in the argument list of AddShapes(vector< Quadrilateral * > Shapes[SHAPESNUMBER], Quadrilateral *NewShape)
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/Shapes.cpp:68: warning: argument 'Quadrilateral' of command @param is not found in the argument list of AddShapes(vector< Quadrilateral * > Shapes[SHAPESNUMBER], Quadrilateral *NewShape)
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/Shapes.cpp:68: warning: argument 'Quadrilateral' of command @param is not found in the argument list of AddShapes(vector< Quadrilateral * > Shapes[SHAPESNUMBER], Quadrilateral *NewShape)
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/Shapes.cpp:68: warning: The following parameters of AddShapes(vector< Quadrilateral * > Shapes[SHAPESNUMBER], Quadrilateral *NewShape) are not documented:
+  parameter 'Shapes'
+  parameter 'NewShape'
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/Shapes.cpp:36: warning: argument 'vector' of command @param is not found in the argument list of RemoveAllShapes(vector< Quadrilateral * > Shapes[SHAPESNUMBER])
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/Shapes.cpp:36: warning: argument 'Quadrilateral' of command @param is not found in the argument list of RemoveAllShapes(vector< Quadrilateral * > Shapes[SHAPESNUMBER])
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/Shapes.cpp:36: warning: The following parameter of RemoveAllShapes(vector< Quadrilateral * > Shapes[SHAPESNUMBER]) is not documented:
+  parameter 'Shapes'
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/Shapes.cpp:48: warning: argument 'vector' of command @param is not found in the argument list of RemoveOneShape(vector< Quadrilateral * > ShapeToRemove[SHAPESNUMBER], int ShapeToRemoveNumber)
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/Shapes.cpp:48: warning: argument 'Quadrilateral' of command @param is not found in the argument list of RemoveOneShape(vector< Quadrilateral * > ShapeToRemove[SHAPESNUMBER], int ShapeToRemoveNumber)
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/Shapes.cpp:48: warning: argument 'int' of command @param is not found in the argument list of RemoveOneShape(vector< Quadrilateral * > ShapeToRemove[SHAPESNUMBER], int ShapeToRemoveNumber)
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/Shapes.cpp:48: warning: The following parameters of RemoveOneShape(vector< Quadrilateral * > ShapeToRemove[SHAPESNUMBER], int ShapeToRemoveNumber) are not documented:
+  parameter 'ShapeToRemove'
+  parameter 'ShapeToRemoveNumber'
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/Shapes.cpp:13: warning: argument 'vector' of command @param is not found in the argument list of ShowShapes(vector< Quadrilateral * > Shapes)
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/Shapes.cpp:13: warning: argument 'Quadrilateral' of command @param is not found in the argument list of ShowShapes(vector< Quadrilateral * > Shapes)
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/Shapes.cpp:13: warning: argument 'counter' of command @param is not found in the argument list of ShowShapes(vector< Quadrilateral * > Shapes)
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/Shapes.cpp:13: warning: The following parameter of ShowShapes(vector< Quadrilateral * > Shapes) is not documented:
+  parameter 'Shapes'
+Generating docs for file Shapes.h...
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/Shapes.h:17: warning: Member SHAPESNUMBER (macro definition) of file Shapes.h is not documented.
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/Shapes.cpp:68: warning: argument 'vector' of command @param is not found in the argument list of AddShapes(vector< Quadrilateral * > Shapes[SHAPESNUMBER], Quadrilateral *NewShape)
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/Shapes.cpp:68: warning: argument 'Quadrilateral' of command @param is not found in the argument list of AddShapes(vector< Quadrilateral * > Shapes[SHAPESNUMBER], Quadrilateral *NewShape)
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/Shapes.cpp:68: warning: argument 'Quadrilateral' of command @param is not found in the argument list of AddShapes(vector< Quadrilateral * > Shapes[SHAPESNUMBER], Quadrilateral *NewShape)
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/Shapes.cpp:68: warning: The following parameters of AddShapes(vector< Quadrilateral * > Shapes[SHAPESNUMBER], Quadrilateral *NewShape) are not documented:
+  parameter 'Shapes'
+  parameter 'NewShape'
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/Shapes.cpp:36: warning: argument 'vector' of command @param is not found in the argument list of RemoveAllShapes(vector< Quadrilateral * > Shapes[SHAPESNUMBER])
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/Shapes.cpp:36: warning: argument 'Quadrilateral' of command @param is not found in the argument list of RemoveAllShapes(vector< Quadrilateral * > Shapes[SHAPESNUMBER])
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/Shapes.cpp:36: warning: The following parameter of RemoveAllShapes(vector< Quadrilateral * > Shapes[SHAPESNUMBER]) is not documented:
+  parameter 'Shapes'
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/Shapes.cpp:48: warning: argument 'vector' of command @param is not found in the argument list of RemoveOneShape(vector< Quadrilateral * > ShapeToRemove[SHAPESNUMBER], int ShapeToRemoveNumber)
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/Shapes.cpp:48: warning: argument 'Quadrilateral' of command @param is not found in the argument list of RemoveOneShape(vector< Quadrilateral * > ShapeToRemove[SHAPESNUMBER], int ShapeToRemoveNumber)
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/Shapes.cpp:48: warning: argument 'int' of command @param is not found in the argument list of RemoveOneShape(vector< Quadrilateral * > ShapeToRemove[SHAPESNUMBER], int ShapeToRemoveNumber)
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/Shapes.cpp:48: warning: The following parameters of RemoveOneShape(vector< Quadrilateral * > ShapeToRemove[SHAPESNUMBER], int ShapeToRemoveNumber) are not documented:
+  parameter 'ShapeToRemove'
+  parameter 'ShapeToRemoveNumber'
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/Shapes.cpp:13: warning: argument 'vector' of command @param is not found in the argument list of ShowShapes(vector< Quadrilateral * > Shapes)
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/Shapes.cpp:13: warning: argument 'Quadrilateral' of command @param is not found in the argument list of ShowShapes(vector< Quadrilateral * > Shapes)
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/Shapes.cpp:13: warning: argument 'counter' of command @param is not found in the argument list of ShowShapes(vector< Quadrilateral * > Shapes)
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/Shapes.cpp:13: warning: The following parameter of ShowShapes(vector< Quadrilateral * > Shapes) is not documented:
+  parameter 'Shapes'
 Generating docs for file StructTextArea.h...
-C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/StructTextArea.h:10: warning: Member SLEN (macro definition) of file StructTextArea.h is not documented.
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/StructTextArea.h:11: warning: Member SLEN (macro definition) of file StructTextArea.h is not documented.
 Generating page documentation...
 Generating group documentation...
 Generating class documentation...
@@ -105,14 +155,15 @@ Generating docs for compound Quadrilateral...
 "epstopdf" non ? riconosciuto come comando interno o esterno,
  un programma eseguibile o un file batch.
 error: Problems running epstopdf. Check your TeX installation!
-C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CQuadrilateral.h:21: warning: Member sides[4] (variable) of class Quadrilateral is not documented.
-C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CQuadrilateral.h:23: warning: Member tarea (variable) of class Quadrilateral is not documented.
-C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CQuadrilateral.h:29: warning: Member Area()=0 (function) of class Quadrilateral is not documented.
-C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CQuadrilateral.h:82: warning: Member Drawing()=0 (function) of class Quadrilateral is not documented.
-C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CQuadrilateral.cpp:228: warning: Quadrilateral::Dump has @param documentation sections but no arguments
-C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CQuadrilateral.cpp:87: warning: Quadrilateral::Init has @param documentation sections but no arguments
-C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CQuadrilateral.cpp:102: warning: argument 'r' of command @param is not found in the argument list of Quadrilateral::Init(const Quadrilateral &o)
-C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CQuadrilateral.cpp:102: warning: The following parameter of Quadrilateral::Init(const Quadrilateral &o) is not documented:
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CQuadrilateral.h:22: warning: Member sides[4] (variable) of class Quadrilateral is not documented.
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CQuadrilateral.h:24: warning: Member tarea (variable) of class Quadrilateral is not documented.
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CQuadrilateral.h:30: warning: Member Area()=0 (function) of class Quadrilateral is not documented.
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CQuadrilateral.h:83: warning: Member Drawing()=0 (function) of class Quadrilateral is not documented.
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CQuadrilateral.h:84: warning: Member SetDim(float, float)=0 (function) of class Quadrilateral is not documented.
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CQuadrilateral.cpp:234: warning: Quadrilateral::Dump has @param documentation sections but no arguments
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CQuadrilateral.cpp:82: warning: Quadrilateral::Init has @param documentation sections but no arguments
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CQuadrilateral.cpp:96: warning: argument 'r' of command @param is not found in the argument list of Quadrilateral::Init(const Quadrilateral &o)
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CQuadrilateral.cpp:96: warning: The following parameter of Quadrilateral::Init(const Quadrilateral &o) is not documented:
   parameter 'o'
 Generating docs for compound Rectangle...
 "epstopdf" non ? riconosciuto come comando interno o esterno,
@@ -120,14 +171,13 @@ Generating docs for compound Rectangle...
 error: Problems running epstopdf. Check your TeX installation!
 C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CRectangle.h:22: warning: Member height (variable) of class Rectangle is not documented.
 C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CRectangle.h:23: warning: Member width (variable) of class Rectangle is not documented.
-C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CQuadrilateral.h:21: warning: Member sides[4] (variable) of class Quadrilateral is not documented.
-C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CQuadrilateral.h:23: warning: Member tarea (variable) of class Quadrilateral is not documented.
-C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CRectangle.cpp:69: warning: argument 'o' of command @param is not found in the argument list of Rectangle::Rectangle(const Rectangle &r)
-C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CRectangle.cpp:69: warning: The following parameter of Rectangle::Rectangle(const Rectangle &r) is not documented:
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CQuadrilateral.h:22: warning: Member sides[4] (variable) of class Quadrilateral is not documented.
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CQuadrilateral.h:24: warning: Member tarea (variable) of class Quadrilateral is not documented.
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CRectangle.cpp:70: warning: argument 'o' of command @param is not found in the argument list of Rectangle::Rectangle(const Rectangle &r)
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CRectangle.cpp:70: warning: The following parameter of Rectangle::Rectangle(const Rectangle &r) is not documented:
   parameter 'r'
-C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CRectangle.cpp:103: warning: Rectangle::Init has @param documentation sections but no arguments
-C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CRectangle.cpp:79: warning: argument 'o' of command @param is not found in the argument list of Rectangle::operator=(const Rectangle &r)
-C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CRectangle.cpp:79: warning: The following parameter of Rectangle::operator=(const Rectangle &r) is not documented:
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CRectangle.cpp:80: warning: argument 'o' of command @param is not found in the argument list of Rectangle::operator=(const Rectangle &r)
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CRectangle.cpp:80: warning: The following parameter of Rectangle::operator=(const Rectangle &r) is not documented:
   parameter 'r'
 Generating docs for compound Rhombus...
 "epstopdf" non ? riconosciuto come comando interno o esterno,
@@ -135,18 +185,17 @@ Generating docs for compound Rhombus...
 error: Problems running epstopdf. Check your TeX installation!
 C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CRhombus.h:23: warning: Member diagL (variable) of class Rhombus is not documented.
 C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CRhombus.h:24: warning: Member diagS (variable) of class Rhombus is not documented.
-C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CQuadrilateral.h:21: warning: Member sides[4] (variable) of class Quadrilateral is not documented.
-C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CQuadrilateral.h:23: warning: Member tarea (variable) of class Quadrilateral is not documented.
-C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CRhombus.cpp:58: warning: argument 'o' of command @param is not found in the argument list of Rhombus::Rhombus(const Rhombus &r)
-C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CRhombus.cpp:58: warning: The following parameter of Rhombus::Rhombus(const Rhombus &r) is not documented:
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CQuadrilateral.h:22: warning: Member sides[4] (variable) of class Quadrilateral is not documented.
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CQuadrilateral.h:24: warning: Member tarea (variable) of class Quadrilateral is not documented.
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CRhombus.cpp:68: warning: argument 'o' of command @param is not found in the argument list of Rhombus::Rhombus(const Rhombus &r)
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CRhombus.cpp:68: warning: The following parameter of Rhombus::Rhombus(const Rhombus &r) is not documented:
   parameter 'r'
-C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CRhombus.cpp:92: warning: Rhombus::Init has @param documentation sections but no arguments
-C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CRhombus.cpp:68: warning: argument 'o' of command @param is not found in the argument list of Rhombus::operator=(const Rhombus &r)
-C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CRhombus.cpp:68: warning: The following parameter of Rhombus::operator=(const Rhombus &r) is not documented:
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CRhombus.cpp:78: warning: argument 'o' of command @param is not found in the argument list of Rhombus::operator=(const Rhombus &r)
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/CRhombus.cpp:78: warning: The following parameter of Rhombus::operator=(const Rhombus &r) is not documented:
   parameter 'r'
 Generating docs for compound TextArea...
-C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/StructTextArea.h:15: warning: Member string[SLEN] (variable) of struct TextArea is not documented.
-C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/StructTextArea.h:16: warning: Member size (variable) of struct TextArea is not documented.
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/StructTextArea.h:16: warning: Member string[SLEN] (variable) of struct TextArea is not documented.
+C:/Users/elyca/Desktop/programmazioneSI/esercitazione con bonus/StructTextArea.h:17: warning: Member size (variable) of struct TextArea is not documented.
 Generating concept documentation...
 Generating module documentation...
 Generating namespace documentation...
@@ -170,8 +219,8 @@ Generating example index...
 finalizing index lists...
 writing tag file...
 Running plantuml with JAVA...
-type lookup cache used 95/65536 hits=318 misses=98
-symbol lookup cache used 124/65536 hits=619 misses=124
+type lookup cache used 108/65536 hits=420 misses=115
+symbol lookup cache used 136/65536 hits=635 misses=136
 finished...
 
 *** Doxygen has finished
