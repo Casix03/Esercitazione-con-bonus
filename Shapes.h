@@ -25,19 +25,18 @@ using namespace std;
 
 /// @name VISUALIZZATORE
 /// @{
-	void ShowShapes(Quadrilateral* Shapes[SHAPESNUMBER], int lenght);
+	void ShowShapes(vector<Quadrilateral*> Shapes);
 /// @}
 
 /// @name AGGIUNGI-SHAPE
 /// @{
-	bool AddShapes(Quadrilateral* NewShape, int lenght, Quadrilateral* Shapes[SHAPESNUMBER]);
+	void AddShapes(vector<Quadrilateral*> Shapes[SHAPESNUMBER], Quadrilateral* NewShape);
 /// @}
 
 /// @name RIMUOVI-SHAPE
 /// @{
-	void RemoveOneShape(Quadrilateral* ShapeToRemove);
-	void RemoveAllShapes(Quadrilateral* Shapes[SHAPESNUMBER], int lenght);
-	void RemoveAllShapes(vector<Quadrilateral*> Shapes[SHAPESNUMBER], int lenght);
+	void RemoveOneShape(vector<Quadrilateral*> Shapes[SHAPESNUMBER], int ShapeToRemoveNumber);
+	void RemoveAllShapes(vector<Quadrilateral*> Shapes[SHAPESNUMBER]);
 	/// @}
 
 #endif; //SHAPES_H

@@ -10,54 +10,70 @@
 using namespace std;
 
 /// @brief funzione per vedere tutte le forme create
-/// @param int Sh per stampare le forme
-/// @param int lenght è la lunghezza dell'array
-void ShowShapes(Quadrilateral* Shapes[SHAPESNUMBER], int lenght) {
+/// @param vector<Quadrilateral*> Shapes per stampare le forme
+void ShowShapes(vector<Quadrilateral*> Shapes) {
 
-	cout << "__________________________________________________________" << endl;
+	cout << "_________________________CON_VECTOR_________________________" << endl;
 	cout << "Ecco tutte le tue forme\n" << endl;
-	for (int Sh = 0; Sh < lenght; Sh++) {
-		cout << "Forma " << Sh + 1 << ":";
-		Shapes[Sh]->Drawing();
+	if (Shapes.size() != 0) {
+		for (auto i : Shapes) {
+			//cout << "\n\ndisegno da vector\n\n";
+			i->Drawing();
+			//std::cout << i->GetFontSize() << ' '; // will print the various sizes
+		}
+	}
+	else {
+		cout << "Non hai nessuna forma" << endl;
 	}
 	cout << "__________________________________________________________\n" << endl;
 
-}
-
-/// @brief funzione per aggiungere forme
-bool AddShapes(Quadrilateral* NewShape, static int lenght, Quadrilateral* Shapes[SHAPESNUMBER]) {
-	if (lenght > (SHAPESNUMBER)) {
-		cout << endl << "Hai raggiunto il numero massimo di forme. cancellane una per aggiungerne altre";
-		return false;
-	}
-	else {
-		Shapes[++lenght] = NewShape;
-		cout << endl << "Aggiunto alla lista";
-		return true;
-	}
-	lenght++;
 }
 
 /// @brief funzione per rimuovere tutte le forme
-/// @param Sh per far passare una ad una tutte le forme nel ciclo for e cancellarle
-void RemoveAllShapes(Quadrilateral* Shapes[SHAPESNUMBER], int lenght) {
-	//vector<Quadrilateral*> path(begin(Shapes), std::end(Shapes));
+/// @param vector<Quadrilateral*> Shapes[SHAPESNUMBER] per indicare quale lista cancellare
+void RemoveAllShapes(vector<Quadrilateral*> Shapes[SHAPESNUMBER]) {
 	cout << "__________________________________________________________" << endl;
 	cout << "Cancellazione in corso...." << endl;
-	//for (int Sh = 0; Sh < lenght; Sh++) {
-		//Shapes[Sh]->Init();
-	//	delete[] Shapes;
-		//lenght--;
-	//}
+	//auto i   Shapes;
+	Shapes->clear();
+	//Shapes.~Quadrilateral();
+	//Shapes->erase(std::next(Shapes->begin()));
 	cout << "Cancellazione eseguita con successo" << endl;
 	cout << "__________________________________________________________\n" << endl;
-}
-
-void RemoveAllShapes(vector<Quadrilateral*> Shapes[SHAPESNUMBER], int lenght) {
-	cout << "\n\narrivato!\n\n";
-	//auto i   Shapes;
-	//Shapes->clear();
-	Shapes->erase(std::next(Shapes->begin()));
 	return;
+
 }
 
+/// @brief funzione per rimuovere una sola shape
+/// @param vector<Quadrilateral*> ShapeToRemove[SHAPESNUMBER] per indicare dove cancellare
+/// @param int ShapeToRemoveNumber è il numero della shape da eliminare
+void RemoveOneShape(vector<Quadrilateral*> ShapeToRemove[SHAPESNUMBER], int ShapeToRemoveNumber) {
+	try {
+		cout << "\n\n" << ShapeToRemove->size() << endl;
+
+		if (ShapeToRemoveNumber < SHAPESNUMBER && ShapeToRemoveNumber < ShapeToRemove->size() && ShapeToRemove->size() != 0) {
+			ShapeToRemove->erase((ShapeToRemove->begin() + ShapeToRemoveNumber)); // controllo per verificare che la shape da rimuovere effettivamente esista
+			//ShapeToRemove->~Quadrilateral();
+		}
+		else {
+			//cout << endl << "questa shape non esiste riprova con una shape valida" << endl;
+			throw(1);
+		}
+	}
+		catch (...) {
+			cout << endl << "----------------------------ERRORE------------------------------\n";
+			cout << endl << "questa shape non esiste riprova con una shape valida" << endl;
+		}
+	}
+
+/// @brief funzione per aggiungere forme
+void AddShapes(vector<Quadrilateral*> Shapes[SHAPESNUMBER], Quadrilateral* NewShape) {
+
+	if (Shapes->size() < SHAPESNUMBER) {
+		Shapes->push_back(NewShape);
+		cout << endl << "forma aggiunta con successo!" << endl;
+	}
+	else {
+		cout << endl << "Limite forme raggiunto! cancella qualcosa per fare una nuova forma" << endl;
+	}
+}
