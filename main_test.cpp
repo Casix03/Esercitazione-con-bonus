@@ -16,30 +16,44 @@ const int LISTL = 6;
 Quadrilateral* quadList[LISTL];
 vector<Quadrilateral*> MyShapes;
 
+
+/// @brief menu per fare operazioni con le forme
+/// @param Quadrilateral* ShapePointer è puntatore a quadrilatero che poi potra' diventare o rettangolo o rombo
+/// @param int choice indica la scelta nel menu
+/// @param char DestroyChoice e' per decidere se voglio davvero cancellare tutto o no
+/// @param int MyQuadrilateral per decidere se voglio rombo o rettangolo
+/// @param float dim1 e dim2 per settare le dimenzioni della forma
+/// @param int fontDim per settare dimensione carattere
+/// @param int ShapeToDelete per decidere il numero della forma da eliminare
+/// @param char NewText[SLEN] ospita il testo da scrivere nella forma
 void Menu(Quadrilateral* ShapePointer) {
 	int choice = 999;
+	char DestroyChoice = 'c';
 	int MyQuadrilateral = 99;
-	int dim1 = 99;
-	int dim2 = 99;
+	float dim1 = 99;
+	float dim2 = 99;
 	int fontDim = 99;
 	int ShapeToDelete = 99;
 	char NewText[SLEN] = "default";
 
-	cout << "|| DISEGNATORE DI FORME ||" << endl;
+	cout << "_______|| DISEGNATORE DI FORME ||_______" << endl;
 	
-	while (1) {
+	while (1) { //fa sempre andare il menu fino a che non seleziono 0
 
 		cout << endl << "Cosa vuoi fare?" << endl;
+		cout << "0: esci dal programma" << endl;
 		cout << "1: aggiungi forma " << endl;
 		cout << "2: elimina forma " << endl;
 		cout << "3: elimina tutto " << endl;
 		cout << "4: mostra forme " << endl;
-		cout << "0: esci dal programma" << endl;
 
 		scanf("%d", &choice);
 
 		switch (choice) {
-		case 1:
+		case 0: //USCITA
+			cout << "_______|| USCITA IN CORSO... ||________" << endl;
+			return; // torna nel main
+		case 1: // AGGIUNTA FORMA
 			cout << "Che forma vuoi? " << endl;
 			cout << "1: rettangolo " << endl;
 			cout << "2: rombo " << endl;
@@ -49,18 +63,18 @@ void Menu(Quadrilateral* ShapePointer) {
 				cout << "Hai selezionato rettanglo!" << endl;
 				ShapePointer = new Rectangle;
 				cout << "Scegli dimensione base: ";
-				scanf("%d", &dim1);
+				scanf("%f", &dim1);
 				cout << "Scegli dimensione altezza: ";
-				scanf("%d", &dim2);
+				scanf("%f", &dim2);
 				ShapePointer->SetDim(dim1, dim2);
 			}
 			else if (MyQuadrilateral == 2) {
 				cout << "Hai selezionato rombo!" << endl;
 				ShapePointer = new Rhombus;
 				cout << "Scegli dimensione diagonale maggiore: ";
-				scanf("%d", &dim1);
+				scanf("%f", &dim1);
 				cout << "Scegli dimensione diagonale minore: ";
-				scanf("%d", &dim2);
+				scanf("%f", &dim2);
 				ShapePointer->SetDim(dim1, dim2);
 			}
 			else {
@@ -71,29 +85,32 @@ void Menu(Quadrilateral* ShapePointer) {
 			scanf("%d", &fontDim);
 			ShapePointer->SetFontSize(fontDim);
 			cout << "Scegli testo dentro la forma: " << endl;
-			scanf("%s", &NewText);
+			//scanf("%s", &NewText);
+			scanf("\n");					// per prendere l'invio
+			fgets(NewText, SLEN, stdin);	// cosi' anche se metto lo spazio funziona
 			ShapePointer->SetText(NewText);
 			
-
-			//ShapePointer->SetDim(5, 7);
-			AddShapes(&MyShapes, ShapePointer);
+			AddShapes(&MyShapes, ShapePointer); // aggiungo la forma appena creata dall'utente
 			break;
-		case 2:
-			ShowShapes(MyShapes);
+		case 2: //RIMUOVI UNA FORMA
+			ShowShapes(MyShapes); //fa una lista per decidere quale forma eliminare
 			cout << "Scegli la forma da eliminare: " << endl;
 			scanf("%d", &ShapeToDelete);
 			RemoveOneShape(&MyShapes, ShapeToDelete);
 			break;
-		case 3:
-			//cout << "ATTENZIONE: questa operazione cancellerà TUTTO. Procedere? (Y/N) ";
-			RemoveAllShapes(&MyShapes);
+		case 3: //rimuovi tutte forme
+			cout << "ATTENZIONE: questa operazione cancellerà TUTTO. Procedere? (Y/N) ";
+			scanf("\n");
+			scanf("%c", &DestroyChoice);
+			if (DestroyChoice == 'Y' || DestroyChoice == 'y') // nel caso la scelta fosse di cancellare tutto cancello tutto
+				RemoveAllShapes(&MyShapes);
+			else
+				cout << "Operazione annullata" << endl; //annulla operazione cancellazione
 			break;
-		case 4:
+		case 4: //MOSTRA LE FORME
 			ShowShapes(MyShapes);
 			break;
-		case 0:
-			return;
-		default:
+		default: // QUALSIASI ALTRO CASO NON TRATTATO
 			cout << "Scelta non valida. Riprova!" << endl;
 			break;
 		}

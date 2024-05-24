@@ -80,4 +80,4 @@ public:
 		
 };
 
-#endif
+#endif // RHOMBUS_H

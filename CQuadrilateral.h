@@ -75,13 +75,13 @@ public:
 	/// @{
 	void ErrorMessage(const char *string); 
 	void WarningMessage(const char *string);
-	virtual	void Dump(); //messo per esperimento
+	virtual	void Dump(); //per sfruttare polimorfismo
 	/// @}
 	
 	/// @name PURE VIRTUAL FUNCTIONS 
 	/// @{
 	virtual void Drawing()=0;
-	virtual void SetDim(float, float) = 0; //tentativo magico
+	virtual void SetDim(float, float) = 0; //abbiamo deciso di metterla virtuale pura per sfruttare il polimorfismo nella funzione menu del main
 	/// @}
 
 };

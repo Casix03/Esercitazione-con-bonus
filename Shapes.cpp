@@ -2,7 +2,7 @@
 ///	\brief Functions to manage shapes: implementation of the functions
 /// @author Elisa Castellari / Francesco Casazza
 /// 
-///	Details;
+///	Abbiamo provato a usare vector come preannunciato in classe
 ///
 
 #include "Shapes.h"
@@ -11,15 +11,18 @@ using namespace std;
 
 /// @brief funzione per vedere tutte le forme create
 /// @param vector<Quadrilateral*> Shapes per stampare le forme
+/// @param counter tiene il conto del numero delle forme 
 void ShowShapes(vector<Quadrilateral*> Shapes) {
 
-	cout << "_________________________CON_VECTOR_________________________" << endl;
+	int counter = 0;
+
+	cout << "_________________________CON_VECTOR________________________" << endl;
 	cout << "Ecco tutte le tue forme\n" << endl;
 	if (Shapes.size() != 0) {
-		for (auto i : Shapes) {
-		//	cout << "\nForma: " << ;
+		for (auto i : Shapes) {  //passa in rassegna tutte le shapes per disegnarle
+			cout << "\nForma: " << counter;
 			i->Drawing();
-			//std::cout << i->GetFontSize() << ' '; // will print the various sizes
+			counter++;
 		}
 	}
 	else {
@@ -34,10 +37,7 @@ void ShowShapes(vector<Quadrilateral*> Shapes) {
 void RemoveAllShapes(vector<Quadrilateral*> Shapes[SHAPESNUMBER]) {
 	cout << "__________________________________________________________" << endl;
 	cout << "Cancellazione in corso...." << endl;
-	//auto i   Shapes;
 	Shapes->clear();
-	//Shapes.~Quadrilateral();
-	//Shapes->erase(std::next(Shapes->begin()));
 	cout << "Cancellazione eseguita con successo" << endl;
 	cout << "__________________________________________________________\n" << endl;
 	return;
@@ -49,8 +49,6 @@ void RemoveAllShapes(vector<Quadrilateral*> Shapes[SHAPESNUMBER]) {
 /// @param int ShapeToRemoveNumber è il numero della shape da eliminare
 void RemoveOneShape(vector<Quadrilateral*> ShapeToRemove[SHAPESNUMBER], int ShapeToRemoveNumber) {
 	try {
-		cout << "\n\n" << ShapeToRemove->size() << endl;
-
 		if (ShapeToRemoveNumber < SHAPESNUMBER && ShapeToRemoveNumber < ShapeToRemove->size() && ShapeToRemove->size() != 0) {
 			ShapeToRemove->erase((ShapeToRemove->begin() + ShapeToRemoveNumber)); // controllo per verificare che la shape da rimuovere effettivamente esista
 			//ShapeToRemove->~Quadrilateral();
@@ -67,6 +65,8 @@ void RemoveOneShape(vector<Quadrilateral*> ShapeToRemove[SHAPESNUMBER], int Shap
 	}
 
 /// @brief funzione per aggiungere forme
+/// @param vector<Quadrilateral*> Shapes[SHAPESNUMBER] per indicare dove inserire la shape
+/// @param Quadrilateral* NewShape indica la shape da aggiungere
 void AddShapes(vector<Quadrilateral*> Shapes[SHAPESNUMBER], Quadrilateral* NewShape) {
 
 	if (Shapes->size() < SHAPESNUMBER) {
