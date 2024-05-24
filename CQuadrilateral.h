@@ -75,12 +75,13 @@ public:
 	/// @{
 	void ErrorMessage(const char *string); 
 	void WarningMessage(const char *string);
-virtual	void Dump(); //messo per esperimento
+	virtual	void Dump(); //messo per esperimento
 	/// @}
 	
 	/// @name PURE VIRTUAL FUNCTIONS 
 	/// @{
 	virtual void Drawing()=0;
+	virtual void SetDim(float, float) = 0; //tentativo magico
 	/// @}
 
 };

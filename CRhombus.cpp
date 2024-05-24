@@ -257,7 +257,7 @@ void Rhombus::Dump() {
 void Rhombus::Drawing() {
 
 	cout << endl << "sto disegnando un Rombo di diagonale maggiore " << diagL << " e diagonale minore " << diagS;
-	cout << endl << "il testo che contiene e' " << tarea->string << " e la grandezza del carattere e' " << tarea->size << endl;
+	cout << endl << "il testo che contiene e' '" << tarea->string << "' e la grandezza del carattere e' " << tarea->size << endl;
 
 }
 

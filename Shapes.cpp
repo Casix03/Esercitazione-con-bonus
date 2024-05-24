@@ -17,7 +17,7 @@ void ShowShapes(vector<Quadrilateral*> Shapes) {
 	cout << "Ecco tutte le tue forme\n" << endl;
 	if (Shapes.size() != 0) {
 		for (auto i : Shapes) {
-			//cout << "\n\ndisegno da vector\n\n";
+		//	cout << "\nForma: " << ;
 			i->Drawing();
 			//std::cout << i->GetFontSize() << ' '; // will print the various sizes
 		}

@@ -1,4 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS
+
 #include<iostream>
 #include <cstring>
 
@@ -6,6 +7,8 @@
 #include "CRectangle.h"
 #include "CRhombus.h"
 #include "Shapes.h"
+
+using namespace std;
 
 int ShapeLenght = 0; //inizializzo lunghezza a 0
 Quadrilateral* ShapeList[SHAPESNUMBER]; //prova per shape grande
@@ -21,6 +24,8 @@ void Menu(Quadrilateral* ShapePointer) {
 	int fontDim = 99;
 	int ShapeToDelete = 99;
 	char NewText[SLEN] = "default";
+
+	cout << "|| DISEGNATORE DI FORME ||" << endl;
 	
 	while (1) {
 
@@ -35,7 +40,7 @@ void Menu(Quadrilateral* ShapePointer) {
 
 		switch (choice) {
 		case 1:
-			cout << "che forma vuoi? " << endl;
+			cout << "Che forma vuoi? " << endl;
 			cout << "1: rettangolo " << endl;
 			cout << "2: rombo " << endl;
 			scanf("%d", &MyQuadrilateral);
@@ -43,23 +48,24 @@ void Menu(Quadrilateral* ShapePointer) {
 			if (MyQuadrilateral == 1) {
 				cout << "Hai selezionato rettanglo!" << endl;
 				ShapePointer = new Rectangle;
-				cout << "scegli dimensione base: ";
+				cout << "Scegli dimensione base: ";
 				scanf("%d", &dim1);
-				cout << "scegli dimensione altezza: ";
+				cout << "Scegli dimensione altezza: ";
 				scanf("%d", &dim2);
-				//ShapePointer->SetDim(dim1, dim2);
+				ShapePointer->SetDim(dim1, dim2);
 			}
 			else if (MyQuadrilateral == 2) {
 				cout << "Hai selezionato rombo!" << endl;
 				ShapePointer = new Rhombus;
-				cout << "scegli dimensione diagonale maggiore: ";
+				cout << "Scegli dimensione diagonale maggiore: ";
 				scanf("%d", &dim1);
-				cout << "scegli dimensione diagonale minore: ";
+				cout << "Scegli dimensione diagonale minore: ";
 				scanf("%d", &dim2);
-				//ShapePointer->SetDim(dim1, dim2);
+				ShapePointer->SetDim(dim1, dim2);
 			}
 			else {
 				cout << "Scelta non valida " << endl;
+				break;
 			}
 			cout << "Scegli dimensione del carattere: ";
 			scanf("%d", &fontDim);
@@ -73,8 +79,8 @@ void Menu(Quadrilateral* ShapePointer) {
 			AddShapes(&MyShapes, ShapePointer);
 			break;
 		case 2:
-			cout << "Scegli la forma da eliminare: " << endl;
 			ShowShapes(MyShapes);
+			cout << "Scegli la forma da eliminare: " << endl;
 			scanf("%d", &ShapeToDelete);
 			RemoveOneShape(&MyShapes, ShapeToDelete);
 			break;
