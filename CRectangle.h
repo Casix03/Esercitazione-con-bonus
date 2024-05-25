@@ -1,4 +1,5 @@
 /*! \file CRectangle.h
+*  @author Elisa Castellari 5610013 / Francesco Casazza 5449073
 	\brief Declaration of the class Rectangle
 
 	Details.

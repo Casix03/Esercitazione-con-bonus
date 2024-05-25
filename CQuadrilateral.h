@@ -75,7 +75,7 @@ public:
 	/// @{
 	void ErrorMessage(const char *string); 
 	void WarningMessage(const char *string);
-	virtual	void Dump(); //per sfruttare polimorfismo
+	virtual	void Dump();				 //per sfruttare polimorfismo
 	/// @}
 	
 	/// @name PURE VIRTUAL FUNCTIONS 

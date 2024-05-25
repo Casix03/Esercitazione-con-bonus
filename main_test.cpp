@@ -10,8 +10,7 @@
 
 using namespace std;
 
-int ShapeLenght = 0; //inizializzo lunghezza a 0
-Quadrilateral* ShapeList[SHAPESNUMBER]; //prova per shape grande
+/// @brief variabili globali
 const int LISTL = 6;
 Quadrilateral* quadList[LISTL];
 vector<Quadrilateral*> MyShapes;
@@ -39,7 +38,8 @@ void Menu(Quadrilateral* ShapePointer) {
 	cout << "_______|| DISEGNATORE DI FORME ||_______" << endl;
 	
 	while (1) { //fa sempre andare il menu fino a che non seleziono 0
-
+		
+		//cout << choice << endl;                        CONTROLLO CHOICE
 		cout << endl << "Cosa vuoi fare?" << endl;
 		cout << "0: esci dal programma" << endl;
 		cout << "1: aggiungi forma " << endl;
@@ -113,6 +113,7 @@ void Menu(Quadrilateral* ShapePointer) {
 			break;
 		default: // QUALSIASI ALTRO CASO NON TRATTATO
 			cout << "Scelta non valida. Riprova!" << endl;
+			choice = 0;
 			break;
 		}
 	}
@@ -169,5 +170,10 @@ int main() {
 	Show();
 	// per vedere se teneva le forme in memoria
 	Menu(p);
+	// per deallocare la memoria allocata dalle forme che ho creato
+	for (auto ShapeToDelete : MyShapes) {
+		if (ShapeToDelete != NULL)
+		delete[] ShapeToDelete;
+	}
 	return 0;
 }

@@ -116,8 +116,8 @@ void Rhombus::Init(const Rhombus &r) {
 		cout << "c'e' qualcosa che non va, sto puntando a NULL\n";
 		exit(1);
 	}
-	SetFontSize(r.tarea->size); /// inizializza il rectangle con la size di r
-	SetText(r.tarea->string);   /// inizializza la string di rectangle con quella di r
+	SetFontSize(r.tarea->size); // inizializza il rectangle con la size di r
+	SetText(r.tarea->string);   // inizializza la string di rectangle con quella di r
 	
 }
 
@@ -260,11 +260,3 @@ void Rhombus::Drawing() {
 	cout << endl << "il testo che contiene e' '" << tarea->string << "' e la grandezza del carattere e' " << tarea->size << endl;
 
 }
-
-
-
-
-
-
-
-

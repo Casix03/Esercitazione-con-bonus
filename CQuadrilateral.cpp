@@ -1,3 +1,10 @@
+/// \file CQadrilateral.cpp
+///	\brief class Quadrilateral: implementation of the functions
+/// @author Elisa Castellari / Francesco Casazza
+/// 
+///	Details.
+///
+
 #include <cstring>
 #include "CQuadrilateral.h"
 #include <string.h>
@@ -151,7 +158,7 @@ void Quadrilateral::GetSides(float &s0, float &s1, float &s2, float &s3) {
 /// @param ta a struct of type TextArea to be filled
 void Quadrilateral::GetTextArea(TextArea &ta) {
 	
-	ta.size = tarea->size;  /// metto in ta la size di textarea
+	ta.size = tarea->size;  // metto in ta la size di textarea
 	memcpy(ta.string, tarea->string, strlen(tarea->string) + 1); // copio con memcpy la stringa di ta
 
 } 
@@ -231,7 +238,7 @@ void Quadrilateral::WarningMessage(const char *string) {
 /// @param temp stringa vuota che accoglierà il testo di GetText 
 void Quadrilateral::Dump() {
 
-	char temp[SLEN] = " "; /// variabile temporanea per scrivere text message nel cout
+	char temp[SLEN] = " "; // variabile temporanea per scrivere text message nel cout
 	GetText(temp);
 
 	cout << endl;

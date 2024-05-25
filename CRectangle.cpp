@@ -122,7 +122,6 @@ void Rectangle::Init(const Rectangle &r) {
 /// @brief total reset of the object  
 void Rectangle::Reset() {
 	
-	Quadrilateral::Reset(); // così dealloco tutto
 	SetDim(0,0);
 	
 }
@@ -239,7 +238,7 @@ void Rectangle::Dump() {
 	cout << "Heigth = " << height << endl;
 	cout << "------------" << endl;
 	
-	Quadrilateral::Dump(); /// così scrive anche le cose scritte nel rettanglo e la sua fontsize
+	Quadrilateral::Dump(); // così scrive anche le cose scritte nel rettanglo e la sua fontsize
 	
 	cout << endl;
 

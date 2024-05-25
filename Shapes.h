@@ -37,6 +37,6 @@ using namespace std;
 /// @{
 	void RemoveOneShape(vector<Quadrilateral*> Shapes[SHAPESNUMBER], int ShapeToRemoveNumber);
 	void RemoveAllShapes(vector<Quadrilateral*> Shapes[SHAPESNUMBER]);
-	/// @}
+/// @}
 
 #endif; //SHAPES_H
