@@ -22,24 +22,23 @@ vector<Quadrilateral*> MyShapes;
 /// @param char DestroyChoice e' per decidere se voglio davvero cancellare tutto o no
 /// @param int MyQuadrilateral per decidere se voglio rombo o rettangolo
 /// @param float dim1 e dim2 per settare le dimenzioni della forma
-/// @param int fontDim per settare dimensione carattere
+/// @param unsigned int fontDim per settare dimensione carattere
 /// @param int ShapeToDelete per decidere il numero della forma da eliminare
 /// @param char NewText[SLEN] ospita il testo da scrivere nella forma
 void Menu(Quadrilateral* ShapePointer) {
-	int choice = 999;
+
+	int choice = 99;
 	char DestroyChoice = 'c';
 	int MyQuadrilateral = 99;
-	float dim1 = 99;
-	float dim2 = 99;
-	int fontDim = 99;
+	float dim1 = 99, dim2 = 99;
+	unsigned int fontDim = 99;
 	int ShapeToDelete = 99;
 	char NewText[SLEN] = "default";
 
 	cout << "_______|| DISEGNATORE DI FORME ||_______" << endl;
-	
+
 	while (1) { //fa sempre andare il menu fino a che non seleziono 0
-		
-		//cout << choice << endl;                        CONTROLLO CHOICE
+
 		cout << endl << "Cosa vuoi fare?" << endl;
 		cout << "0: esci dal programma" << endl;
 		cout << "1: aggiungi forma " << endl;
@@ -47,6 +46,7 @@ void Menu(Quadrilateral* ShapePointer) {
 		cout << "3: elimina tutto " << endl;
 		cout << "4: mostra forme " << endl;
 
+		choice = 99;
 		scanf("%d", &choice);
 
 		switch (choice) {
@@ -82,42 +82,51 @@ void Menu(Quadrilateral* ShapePointer) {
 				break;
 			}
 			cout << "Scegli dimensione del carattere: ";
-			scanf("%d", &fontDim);
+			scanf("%u", &fontDim);
 			ShapePointer->SetFontSize(fontDim);
 			cout << "Scegli testo dentro la forma: " << endl;
-			//scanf("%s", &NewText);
 			scanf("\n");					// per prendere l'invio
 			fgets(NewText, SLEN, stdin);	// cosi' anche se metto lo spazio funziona
 			strtok(NewText, "\n");			// rimuove il \n finale letto da fgets
 			ShapePointer->SetText(NewText);
-			
+
 			AddShapes(&MyShapes, ShapePointer); // aggiungo la forma appena creata dall'utente
 			break;
-		case 2: //RIMUOVI UNA FORMA
+		case 2: //RIMUOVI UNA FORMA		
 			ShowShapes(MyShapes); //fa una lista per decidere quale forma eliminare
-			cout << "Scegli la forma da eliminare: " << endl;
-			scanf("%d", &ShapeToDelete);
-			RemoveOneShape(&MyShapes, ShapeToDelete);
+			if (MyShapes.size() != 0) {
+				cout << "Scegli la forma da eliminare: ";
+				scanf("%d", &ShapeToDelete);
+				RemoveOneShape(&MyShapes, ShapeToDelete);
+			}
+			else
+				cout << "Non hai nessuna forma da eliminare. Aggiungine una per usare questa funzione." << endl;
 			break;
 		case 3: //rimuovi tutte forme
-			cout << "ATTENZIONE: questa operazione cancellerà TUTTO. Procedere? (Y/N) ";
+			cout << "ATTENZIONE: questa operazione cancellera' TUTTO. Procedere? (Y/N) ";
 			scanf("\n");
 			scanf("%c", &DestroyChoice);
-			if (DestroyChoice == 'Y' || DestroyChoice == 'y') // nel caso la scelta fosse di cancellare tutto cancello tutto
+			if (DestroyChoice == 'Y' || DestroyChoice == 'y') { // nel caso la scelta fosse di cancellare tutto cancello tutto
 				RemoveAllShapes(&MyShapes);
+			}
 			else
 				cout << "Operazione annullata" << endl; //annulla operazione cancellazione
 			break;
 		case 4: //MOSTRA LE FORME
 			ShowShapes(MyShapes);
 			break;
+		case 99: //PUNIZIONE PER CHI METTE UN CARATTERE
+			cout << endl << "________________________________________________________________" << endl;
+			cout << endl << "SEI STATO CATTIVO, HAI INSERITO UN QUALCOSA CHE NON E' UN NUMERO" << endl;
+			cout << "SEI ESPULSO A TEMPO INDEFINITO DAL PROGRAMMA" << endl;
+			cout << "________________________________________________________________\n" << endl;
+			return;
 		default: // QUALSIASI ALTRO CASO NON TRATTATO
-			cout << "Scelta non valida. Riprova!" << endl;
-			choice = 0;
+			cout << choice << " non e' una scelta valida. Riprova!" << endl;
 			break;
 		}
-	}
-}
+	} 
+} 
 
 //@brief funzione data dal professore
 void Show() {
@@ -166,9 +175,8 @@ int main() {
 	rectB.SetTextArea(a2);
 	rhoB.SetText(t3);
 
-
 	Show();
-	// per vedere se teneva le forme in memoria
+	// per vedere se tiene le forme in memoria
 	Menu(p);
 	// per deallocare la memoria allocata dalle forme che ho creato
 	for (auto ShapeToDelete : MyShapes) {

@@ -17,16 +17,16 @@ void ShowShapes(vector<Quadrilateral*> Shapes) {
 	int counter = 0;
 
 	cout << "_________________________CON_VECTOR________________________" << endl;
-	cout << "Ecco tutte le tue forme\n" << endl;
+	cout << "Ecco tutte le tue forme:" << endl;
 	if (Shapes.size() != 0) {
 		for (auto i : Shapes) {  //passa in rassegna tutte le shapes per disegnarle
-			cout << "\nForma: " << counter;
+			cout << endl << "Forma " << counter;
 			i->Drawing();
 			counter++;
 		}
 	}
 	else {
-		cout << "Non hai nessuna forma" << endl;
+		cout << endl << "Non hai nessuna forma" << endl;
 	}
 	cout << "__________________________________________________________\n" << endl;
 
@@ -38,6 +38,12 @@ void RemoveAllShapes(vector<Quadrilateral*> Shapes[SHAPESNUMBER]) {
 	cout << "__________________________________________________________" << endl;
 	cout << "Cancellazione in corso...." << endl;
 	Shapes->clear();
+	//////////////////////////////////////
+	for (auto ShapeToDelete : Shapes[SHAPESNUMBER]) { 	// per deallocare la memoria allocata dalle forme che ho creato
+		if (ShapeToDelete != NULL)
+			delete[] ShapeToDelete;
+	}
+	/////////////////////////////////////////
 	cout << "Cancellazione eseguita con successo" << endl;
 	cout << "__________________________________________________________\n" << endl;
 	return;
@@ -51,18 +57,17 @@ void RemoveOneShape(vector<Quadrilateral*> ShapeToRemove[SHAPESNUMBER], int Shap
 	try {
 		if (ShapeToRemoveNumber < SHAPESNUMBER && ShapeToRemoveNumber < ShapeToRemove->size() && ShapeToRemove->size() != 0) {
 			ShapeToRemove->erase((ShapeToRemove->begin() + ShapeToRemoveNumber)); // controllo per verificare che la shape da rimuovere effettivamente esista
-			//ShapeToRemove->~Quadrilateral();
+			cout<< endl << "Forma rimossa con successo!" << endl;
 		}
 		else {
-			//cout << endl << "questa shape non esiste riprova con una shape valida" << endl;
 			throw(1);
 		}
 	}
-		catch (...) {
-			cout << endl << "----------------------------ERRORE------------------------------\n";
-			cout << endl << "questa shape non esiste riprova con una shape valida" << endl;
-		}
+	catch (...) {
+		cout << endl << "----------------------------ERRORE------------------------------\n";
+		cout << endl << "Questa shape non esiste, riprova con una shape valida" << endl;
 	}
+}
 
 /// @brief funzione per aggiungere forme
 /// @param vector<Quadrilateral*> Shapes[SHAPESNUMBER] per indicare dove inserire la shape
@@ -71,9 +76,9 @@ void AddShapes(vector<Quadrilateral*> Shapes[SHAPESNUMBER], Quadrilateral* NewSh
 
 	if (Shapes->size() < SHAPESNUMBER) {
 		Shapes->push_back(NewShape);
-		cout << endl << "forma aggiunta con successo!" << endl;
+		cout << endl << "Forma aggiunta con successo!" << endl;
 	}
 	else {
-		cout << endl << "Limite forme raggiunto! cancella qualcosa per fare una nuova forma" << endl;
+		cout << endl << "Limite forme raggiunto! Cancella qualcosa per aggiungere una nuova forma" << endl;
 	}
 }
